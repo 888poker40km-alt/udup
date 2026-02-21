@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Motivatio</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#6a00ff">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,5 +23,12 @@
     </div>
 </div>
 <script src="script.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./service-worker.js')
+    .then(() => console.log('Service Worker зарегистрирован!'))
+    .catch(err => console.log('Ошибка регистрации SW:', err));
+}
+</script>
 </body>
 </html>
